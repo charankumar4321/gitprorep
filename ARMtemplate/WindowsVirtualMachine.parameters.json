@@ -11,8 +11,8 @@
     "myavName": {
       "value": "availability"
     },
-    "adminPassword": {
-      "value": "passwordweb@123"
+    "publicIPAddressType": {
+      "value": "static"
     }
   }
 }
