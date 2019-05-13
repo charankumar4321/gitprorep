@@ -49,6 +49,10 @@
 		"vmName": {
 			"type": "string",
 			"minLength": 1
+		},
+		"virtualNetworkName": {
+			"type": "string",
+			"minLength" :  1
 		}
 	},
    "variables": {
@@ -62,8 +66,7 @@
     "vhdStorageType": "Standard_LRS",
     "publicIPAddressName": "myPublicIP",
     "vhdStorageContainerName": "vhds",
-    "virtualNetworkName": "MyVNET",
-    "vnetId": "[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]",
+    "vnetId": "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
     "subnetRef": "[concat(variables('vnetId'), '/subnets/', variables('subnetName'))]",
     "vhdStorageAccountName": "[concat('vhdstorage', uniqueString(resourceGroup().id))]",
     "diagnosticsStorageAccountName": "[variables('vhdStorageAccountName')]",
@@ -101,7 +104,7 @@
     {
       "apiVersion": "2016-03-30",
       "type": "Microsoft.Network/virtualNetworks",
-      "name": "[variables('virtualNetworkName')]",
+      "name": "[parameters('virtualNetworkName')]",
       "location": "[resourceGroup().location]",
       "tags": {
         "displayName": "VirtualNetwork"
@@ -132,7 +135,7 @@
       },
       "dependsOn": [
         "[resourceId('Microsoft.Network/publicIPAddresses/', variables('publicIPAddressName'))]",
-        "[resourceId('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
+        "[resourceId('Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'))]"
       ],
       "properties": {
         "ipConfigurations": [
