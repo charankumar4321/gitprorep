@@ -31,4 +31,9 @@
     <Content Include="WindowsVirtualMachine.parameters.json" />
   </ItemGroup>
   <Target Name="GetReferenceAssemblyPaths" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties WindowsVirtualMachine_1json__JSONSchema="https://batect.charleskorn.com/configSchema.json" />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>
