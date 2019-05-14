@@ -49,29 +49,26 @@
 		"vmName": {
 			"type": "string",
 			"minLength": 1
-		},
-		"virtualNetworkName": {
-			"type": "string",
-			"minLength" :  1
 		}
 	},
-   "variables": {
-    "imagePublisher": "MicrosoftWindowsServer",
-    "imageOffer": "WindowsServer",
-    "OSDiskName": "osdiskforwindowssimple",
-    "nicName": "myVMNic",
-    "addressPrefix": "10.0.0.0/16",
-    "subnetName": "Subnet",
-    "subnetPrefix": "10.0.0.0/24",
-    "vhdStorageType": "Standard_LRS",
-    "publicIPAddressName": "myPublicIP",
-    "vhdStorageContainerName": "vhds",
-    "vnetId": "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
-    "subnetRef": "[concat(variables('vnetId'), '/subnets/', variables('subnetName'))]",
-    "vhdStorageAccountName": "[concat('vhdstorage', uniqueString(resourceGroup().id))]",
-    "diagnosticsStorageAccountName": "[variables('vhdStorageAccountName')]",
-    "wadmetricsresourceid": "[resourceId('Microsoft.Compute/virtualMachines', parameters('vmName'))]"
-  },
+	"variables": {
+		"imagePublisher": "MicrosoftWindowsServer",
+		"imageOffer": "WindowsServer",
+		"OSDiskName": "osdiskforwindowssimple",
+		"nicName": "myVMNic",
+		"addressPrefix": "10.5.0.0/16",
+		"subnetName": "Subnet",
+		"virtualNetworkName": "MyVNET",
+		"subnetPrefix": "10.5.0.0/24",
+		"vhdStorageType": "Standard_LRS",
+		"publicIPAddressName": "myPublicIP",
+		"vhdStorageContainerName": "vhds",
+		"vnetId": "[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]",
+		"subnetRef": "[concat(variables('vnetId'), '/subnets/', variables('subnetName'))]",
+		"vhdStorageAccountName": "[concat('vhdstorage', uniqueString(resourceGroup().id))]",
+		"diagnosticsStorageAccountName": "[variables('vhdStorageAccountName')]",
+		"wadmetricsresourceid": "[resourceId('Microsoft.Compute/virtualMachines', parameters('vmName'))]"
+	},
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
@@ -104,7 +101,7 @@
     {
       "apiVersion": "2016-03-30",
       "type": "Microsoft.Network/virtualNetworks",
-      "name": "[parameters('virtualNetworkName')]",
+      "name": "[variables('virtualNetworkName')]",
       "location": "[resourceGroup().location]",
       "tags": {
         "displayName": "VirtualNetwork"
@@ -135,7 +132,7 @@
       },
       "dependsOn": [
         "[resourceId('Microsoft.Network/publicIPAddresses/', variables('publicIPAddressName'))]",
-        "[resourceId('Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'))]"
+        "[resourceId('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
       ],
       "properties": {
         "ipConfigurations": [
