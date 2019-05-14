@@ -1,18 +1,91 @@
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "adminUsername": {
-      "value": "charan"
-    },
-    "dnsNameForPublicIP": {
-      "value": "charan123"
-    },
-    "myavName": {
-      "value": "availability"
-    },
-    "publicIPAddressType": {
-      "value": "static"
-    }
-  }
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"location": {
+			"value": "southindia"
+		},
+		"networkInterfaceName": {
+			"value": "test-vm906"
+		},
+		"networkSecurityGroupName": {
+			"value": "Test-VM-nsg"
+		},
+		"networkSecurityGroupRules": {
+			"value": [
+				{
+					"name": "HTTP",
+					"properties": {
+						"priority": 300,
+						"protocol": "TCP",
+						"access": "Allow",
+						"direction": "Inbound",
+						"sourceAddressPrefix": "*",
+						"sourcePortRange": "*",
+						"destinationAddressPrefix": "*",
+						"destinationPortRange": "80"
+					}
+				},
+				{
+					"name": "HTTPS",
+					"properties": {
+						"priority": 320,
+						"protocol": "TCP",
+						"access": "Allow",
+						"direction": "Inbound",
+						"sourceAddressPrefix": "*",
+						"sourcePortRange": "*",
+						"destinationAddressPrefix": "*",
+						"destinationPortRange": "443"
+					}
+				},
+				{
+					"name": "RDP",
+					"properties": {
+						"priority": 340,
+						"protocol": "TCP",
+						"access": "Allow",
+						"direction": "Inbound",
+						"sourceAddressPrefix": "*",
+						"sourcePortRange": "*",
+						"destinationAddressPrefix": "*",
+						"destinationPortRange": "3389"
+					}
+				}
+			]
+		},
+		"subnetName": {
+			"value": "test-subnet"
+		},
+		"virtualNetworkId": {
+			"value": "/subscriptions/7e067bc2-d911-4ea0-be67-f3f90b929ad0/resourceGroups/test-RG/providers/Microsoft.Network/virtualNetworks/test-vnet"
+		},
+		"publicIpAddressName": {
+			"value": "Test-VM-ip"
+		},
+		"publicIpAddressType": {
+			"value": "Dynamic"
+		},
+		"publicIpAddressSku": {
+			"value": "Basic"
+		},
+		"virtualMachineName": {
+			"value": "Test-VM"
+		},
+		"virtualMachineRG": {
+			"value": "test-RG"
+		},
+		"osDiskType": {
+			"value": "StandardSSD_LRS"
+		},
+		"virtualMachineSize": {
+			"value": "Standard_DS1_v2"
+		},
+		"adminUsername": {
+			"value": "charan"
+		},
+		"adminPassword": {
+			"value": null
+		}
+	}
 }
