@@ -3,13 +3,13 @@
 	"contentVersion": "1.0.0.0",
 	"parameters": {
 		"location": {
-			"value": "southindia"
+			"value": "centralindia"
 		},
 		"networkInterfaceName": {
-			"value": "test-vm906"
+			"value": "armnic"
 		},
 		"networkSecurityGroupName": {
-			"value": "Test-VM-nsg"
+			"value": "armnsg"
 		},
 		"networkSecurityGroupRules": {
 			"value": [
@@ -55,13 +55,13 @@
 			]
 		},
 		"subnetName": {
-			"value": "test-subnet"
+			"value": "new-subnet"
 		},
 		"virtualNetworkId": {
-			"value": "/subscriptions/7e067bc2-d911-4ea0-be67-f3f90b929ad0/resourceGroups/test-RG/providers/Microsoft.Network/virtualNetworks/test-vnet"
+			"value": "\"/subscriptions/aa58954c-0c32-407d-b9c9-203e7a79ce86/resourceGroups/ARMrg/providers/Microsoft.Network/virtualNetworks/test-vnet\""
 		},
 		"publicIpAddressName": {
-			"value": "Test-VM-ip"
+			"value": "newpip"
 		},
 		"publicIpAddressType": {
 			"value": "Dynamic"
@@ -70,10 +70,10 @@
 			"value": "Basic"
 		},
 		"virtualMachineName": {
-			"value": "Test-VM"
+			"value": "ARM-VM"
 		},
 		"virtualMachineRG": {
-			"value": "test-RG"
+			"value": "ARMrg"
 		},
 		"osDiskType": {
 			"value": "StandardSSD_LRS"
