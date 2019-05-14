@@ -55,13 +55,13 @@
 		"imagePublisher": "MicrosoftWindowsServer",
 		"imageOffer": "WindowsServer",
 		"OSDiskName": "osdiskforwindowssimple",
-		"nicName": "myVMNic",
-		"addressPrefix": "10.5.0.0/16",
-		"subnetName": "Subnet",
-		"virtualNetworkName": "MyVNET",
-		"subnetPrefix": "10.5.0.0/24",
+		"nicName": "myVMNic2",
+		"addressPrefix": "10.6.0.0/16",
+		"subnetName": "Subnet1",
+		"virtualNetworkName": "MyVNET1",
+		"subnetPrefix": "10.6.0.0/24",
 		"vhdStorageType": "Standard_LRS",
-		"publicIPAddressName": "myPublicIP",
+		"publicIPAddressName": "myPublicIP2",
 		"vhdStorageContainerName": "vhds",
 		"vnetId": "[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]",
 		"subnetRef": "[concat(variables('vnetId'), '/subnets/', variables('subnetName'))]",
@@ -497,20 +497,6 @@
           }
         }
       ]
-    },
-    {
-      "name": "[parameters('myavName')]",
-      "type": "Microsoft.Compute/availabilitySets",
-      "location": "[resourceGroup().location]",
-      "apiVersion": "2015-06-15",
-      "dependsOn": [ ],
-      "tags": {
-        "displayName": "myav"
-      },
-      "properties": {
-        "platformUpdateDomainCount": 1,
-        "platformFaultDomainCount": 1
-      }
     }
   ]
 }
