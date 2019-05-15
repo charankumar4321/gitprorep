@@ -3,13 +3,13 @@
 	"contentVersion": "1.0.0.0",
 	"parameters": {
 		"location": {
-			"value": "centralindia"
+			"value": "eastus"
 		},
 		"networkInterfaceName": {
-			"value": "armnic"
+			"value": "template-vm682"
 		},
 		"networkSecurityGroupName": {
-			"value": "armnsg"
+			"value": "Template-VM-nsg"
 		},
 		"networkSecurityGroupRules": {
 			"value": [
@@ -55,13 +55,13 @@
 			]
 		},
 		"subnetName": {
-			"value": "new-subnet"
+			"value": "subnet-tem"
 		},
 		"virtualNetworkId": {
-			"value": "\"/subscriptions/aa58954c-0c32-407d-b9c9-203e7a79ce86/resourceGroups/ARMrg/providers/Microsoft.Network/virtualNetworks/test-vnet\""
+			"value": "/subscriptions/aa58954c-0c32-407d-b9c9-203e7a79ce86/resourceGroups/Template-deploy/providers/Microsoft.Network/virtualNetworks/Template-Vnet"
 		},
 		"publicIpAddressName": {
-			"value": "newpip"
+			"value": "Template-VM-ip"
 		},
 		"publicIpAddressType": {
 			"value": "Dynamic"
@@ -70,13 +70,13 @@
 			"value": "Basic"
 		},
 		"virtualMachineName": {
-			"value": "ARM-VM"
+			"value": "Template-VM"
 		},
 		"virtualMachineRG": {
-			"value": "ARMrg"
+			"value": "Template-deploy"
 		},
 		"osDiskType": {
-			"value": "StandardSSD_LRS"
+			"value": "Premium_LRS"
 		},
 		"virtualMachineSize": {
 			"value": "Standard_DS1_v2"
