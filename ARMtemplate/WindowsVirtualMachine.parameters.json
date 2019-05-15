@@ -64,7 +64,7 @@
 			"value": "Template-VM-ip"
 		},
 		"publicIpAddressType": {
-			"value": "Dynamic"
+			"value": "static"
 		},
 		"publicIpAddressSku": {
 			"value": "Basic"
